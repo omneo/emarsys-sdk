@@ -3,7 +3,7 @@
 namespace Arkade\Emarsys\Modules;
 
 use Arkade\Emarsys\Entities\Contact;
-use GuzzleHttp\Exception\ClientException;
+use Illuminate\Support\Collection;
 
 class Contacts extends AbstractModule
 {
@@ -11,13 +11,17 @@ class Contacts extends AbstractModule
      * Fetch a contact by field value.
      *
      * @param  string  $id
-     * @return Contact
+     * @return Collection|Contact[]
      */
     public function getContactByFieldValue(int $field, string $value)
     {
-        $payload = ['keyId' => $field, 'keyValues' => [$value]];
-        return $this->buildEntity(
-            $this->client->post('contact/getdata',$payload),
+        return $this->buildCollection(
+            $this->client->post('contact/getdata',[
+                'json' => [
+                    'keyId' => $field,
+                    'keyValues' => [$value]
+                ]
+            ]),
             Contact::class
         );
     }
