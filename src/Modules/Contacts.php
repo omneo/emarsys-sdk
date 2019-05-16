@@ -34,7 +34,7 @@ class Contacts extends AbstractModule
      *
      * @return void
      */
-    public function output_field_mappings(){
+    public function getFields(){
 
         $fields = $this->send_request('GET', 'field');
 
