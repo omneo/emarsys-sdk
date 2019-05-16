@@ -36,17 +36,17 @@ class Contacts extends AbstractModule
      */
     public function getFields(){
 
-        $fields = $this->send_request('GET', 'field');
+        $response = $this->client->get('field');
+
+        $fields = json_decode((string) $response->getBody(), true)['data'];
 
         $result = collect([]);
 
-        foreach($fields as $field){
-            $fieldData = $field->toArray();
-            if($field->application_type === 'singlechoice' || $field->application_type === 'multiplechoice'){
-                $options = $this->send_request('GET', 'field/'.$field->id.'/choice');
-                foreach($options as $option){
-                    $fieldData['options'] = $option->toArray();
-                }
+        foreach($fields as $fieldData){
+            if($fieldData['application_type'] === 'singlechoice' || $fieldData['application_type'] === 'multiplechoice'){
+                $response = $this->client->get('field/'.$fieldData['id'].'/choice');
+                $options = json_decode((string) $response->getBody(), true)['data'];
+                $fieldData['options'] = $options;
             }
             $result->push($fieldData);
         }
