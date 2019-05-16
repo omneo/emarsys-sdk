@@ -30,9 +30,9 @@ class Contacts extends AbstractModule
      * Output field mappings
      *
      * Emarsys uses an numeric ID reference to a particular field
-     * this returns the field identifiers and field options identifiers (for single and multi choice field types)
+     * this returns the field identifiers and field option identifiers (for single and multi choice field types)
      *
-     * @return void
+     * @return Collection
      */
     public function getFields(){
 
