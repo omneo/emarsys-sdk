@@ -26,4 +26,32 @@ class Contacts extends AbstractModule
         );
     }
 
+    /**
+     * Output field mappings
+     *
+     * Emarsys uses an numeric ID reference to a particular field
+     * this returns the field identifiers and field options identifiers (for single and multi choice field types)
+     *
+     * @return void
+     */
+    public function output_field_mappings(){
+
+        $fields = $this->send_request('GET', 'field');
+
+        $result = collect([]);
+
+        foreach($fields as $field){
+            $fieldData = $field->toArray();
+            if($field->application_type === 'singlechoice' || $field->application_type === 'multiplechoice'){
+                $options = $this->send_request('GET', 'field/'.$field->id.'/choice');
+                foreach($options as $option){
+                    $fieldData['options'] = $option->toArray();
+                }
+            }
+            $result->push($fieldData);
+        }
+
+        return $result;
+    }
+
 }
