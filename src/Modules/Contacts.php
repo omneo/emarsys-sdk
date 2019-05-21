@@ -37,7 +37,6 @@ class Contacts extends AbstractModule
     {
         return $this->buildEntity(
             $this->client->post('contact',[
-                'create_id_not_exists' => true,
                 'json' => [
                     'key_id' => $field,
                     'contacts' => [$contact]
@@ -56,12 +55,14 @@ class Contacts extends AbstractModule
      */
     public function update(int $field, Contact $contact)
     {
+        $payload = $contact->getDirtyAttributeValues();
+        $payload[$field] = $contact->get($field);
         return $this->buildEntity(
             $this->client->put('contact',[
                 'create_id_not_exists' => 1,
                 'json' => [
                     'key_id' => $field,
-                    'contacts' => [$contact]
+                    'contacts' => [$payload]
                 ]
             ]),
             Contact::class
