@@ -1,9 +1,9 @@
 <?php
 
-namespace Arkade\Emarsys\Modules;
+namespace Omneo\Emarsys\Modules;
 
-use Arkade\Emarsys\Client;
-use Arkade\Emarsys\Concerns;
+use Omneo\Emarsys\Client;
+use Omneo\Emarsys\Concerns;
 
 abstract class AbstractModule
 {

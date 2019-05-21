@@ -1,8 +1,8 @@
 <?php
 
-namespace Arkade\Emarsys\Entities;
+namespace Omneo\Emarsys\Entities;
 
-use Arkade\Emarsys\Concerns;
+use Omneo\Emarsys\Concerns;
 use Illuminate\Support\Fluent;
 
 abstract class Entity extends Fluent

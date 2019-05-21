@@ -1,8 +1,8 @@
 <?php
 
-namespace Arkade\Emarsys\Concerns;
+namespace Omneo\Emarsys\Concerns;
 
-use Arkade\Emarsys\Entities;
+use Omneo\Emarsys\Entities;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Collection;
 

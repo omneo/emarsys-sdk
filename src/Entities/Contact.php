@@ -1,10 +1,10 @@
 <?php
 
-namespace Arkade\Emarsys\Entities;
+namespace Omneo\Emarsys\Entities;
 
 use Illuminate\Support\Fluent;
 use Illuminate\Support\Collection;
-use Arkade\Emarsys\Exceptions;
+use Omneo\Emarsys\Exceptions;
 
 class Contact extends Entity
 {

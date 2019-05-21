@@ -1,6 +1,6 @@
 <?php
 
-namespace Arkade\Emarsys;
+namespace Omneo\Emarsys;
 
 use GuzzleHttp;
 use Psr\Http\Message\RequestInterface;

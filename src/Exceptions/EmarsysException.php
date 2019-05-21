@@ -1,6 +1,6 @@
 <?php
 
-namespace Arkade\Emarsys\Exceptions;
+namespace Omneo\Emarsys\Exceptions;
 
 class EmarsysException extends \Exception
 {

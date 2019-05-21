@@ -1,6 +1,6 @@
 <?php
 
-namespace Arkade\Emarsys\Concerns;
+namespace Omneo\Emarsys\Concerns;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;

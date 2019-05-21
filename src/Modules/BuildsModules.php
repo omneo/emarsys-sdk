@@ -1,8 +1,8 @@
 <?php
 
-namespace Arkade\Emarsys\Modules;
+namespace Omneo\Emarsys\Modules;
 
-use Arkade\Emarsys;
+use Omneo\Emarsys;
 
 trait BuildsModules
 {

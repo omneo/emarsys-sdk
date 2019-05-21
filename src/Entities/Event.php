@@ -1,6 +1,6 @@
 <?php
 
-namespace Arkade\Emarsys\Entities;
+namespace Omneo\Emarsys\Entities;
 
 use Illuminate\Support\Fluent;
 use Illuminate\Support\Collection;

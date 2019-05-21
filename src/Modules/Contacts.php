@@ -1,8 +1,8 @@
 <?php
 
-namespace Arkade\Emarsys\Modules;
+namespace Omneo\Emarsys\Modules;
 
-use Arkade\Emarsys\Entities\Contact;
+use Omneo\Emarsys\Entities\Contact;
 use Illuminate\Support\Collection;
 
 class Contacts extends AbstractModule

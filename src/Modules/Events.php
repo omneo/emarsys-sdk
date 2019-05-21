@@ -1,9 +1,9 @@
 <?php
 
-namespace Arkade\Emarsys\Modules;
+namespace Omneo\Emarsys\Modules;
 
-use Arkade\Emarsys\Entities\Contact;
-use Arkade\Emarsys\Entities\Event;
+use Omneo\Emarsys\Entities\Contact;
+use Omneo\Emarsys\Entities\Event;
 use Illuminate\Support\Collection;
 
 class Events extends AbstractModule
