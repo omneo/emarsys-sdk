@@ -79,7 +79,7 @@ class Contacts extends AbstractModule
     public function delete(int $field, Contact $contact)
     {
         return $this->buildEntity(
-            $this->client->put('contact',[
+            $this->client->post('contact/delete',[
                 'json' => [
                     $field => $contact[$field],
                     'key_id' => $field
