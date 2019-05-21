@@ -15,4 +15,14 @@ trait BuildsModules
     {
         return new Contacts($this);
     }
+
+    /**
+     * Return events module.
+     *
+     * @return Contacts
+     */
+    public function events()
+    {
+        return new Events($this);
+    }
 }

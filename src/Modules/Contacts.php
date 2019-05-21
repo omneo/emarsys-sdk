@@ -13,7 +13,7 @@ class Contacts extends AbstractModule
      * @param  string  $id
      * @return Collection|Contact[]
      */
-    public function getContactByFieldValue(int $field, string $value)
+    public function get(int $field, string $value)
     {
         return $this->buildCollection(
             $this->client->post('contact/getdata',[
@@ -27,7 +27,69 @@ class Contacts extends AbstractModule
     }
 
     /**
-     * Output field mappings
+     * Create a contact.
+     *
+     * @param  int  $field
+     * @param  Contact  $contact
+     * @return Contact
+     */
+    public function create(int $field, Contact $contact)
+    {
+        return $this->buildEntity(
+            $this->client->post('contact',[
+                'create_id_not_exists' => true,
+                'json' => [
+                    'key_id' => $field,
+                    'contacts' => [$contact]
+                ]
+            ]),
+            Contact::class
+        );
+    }
+
+    /**
+     * Update a contact.
+     *
+     * @param  int  $field
+     * @param  Contact  $contact
+     * @return Contact
+     */
+    public function update(int $field, Contact $contact)
+    {
+        return $this->buildEntity(
+            $this->client->put('contact',[
+                'create_id_not_exists' => 1,
+                'json' => [
+                    'key_id' => $field,
+                    'contacts' => [$contact]
+                ]
+            ]),
+            Contact::class
+        );
+    }
+
+    /**
+     * Delete a contact.
+     *
+     * @param  int  $field
+     * @param  Contact  $contact
+     * @return Contact
+     */
+    public function delete(int $field, Contact $contact)
+    {
+        return $this->buildEntity(
+            $this->client->put('contact',[
+                'json' => [
+                    $field => $contact[$field],
+                    'key_id' => $field
+                ]
+            ]),
+            Contact::class
+        );
+    }
+
+    /**
+     * Get field identifiers
      *
      * Emarsys uses an numeric ID reference to a particular field
      * this returns the field identifiers and field option identifiers (for single and multi choice field types)
