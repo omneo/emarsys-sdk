@@ -1,5 +1,5 @@
 {
-    "name": "arkade/emarsys-sdk",
+    "name": "omneo/emarsys-sdk",
     "description": "PHP SDK for the Emarsys API",
     "type": "library",
     "license": "MIT",
