@@ -63,10 +63,13 @@ class Client
 
     /**
      * @param string $endpoint
+     * @return $this
      */
     public function setEndpoint($endpoint)
     {
         $this->endpoint = $endpoint;
+
+        return $this;
     }
 
     /**
@@ -79,10 +82,13 @@ class Client
 
     /**
      * @param string $clientId
+     * @return $this
      */
     public function setClientId($clientId)
     {
         $this->clientId = $clientId;
+
+        return $this;
     }
 
     /**
@@ -95,10 +101,13 @@ class Client
 
     /**
      * @param string $clientSecret
+     * @return $this
      */
     public function setClientSecret($clientSecret)
     {
         $this->clientSecret = $clientSecret;
+
+        return $this;
     }
 
     /**
