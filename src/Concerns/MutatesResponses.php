@@ -53,10 +53,13 @@ trait MutatesResponses
         $response = json_decode((string) $response->getBody(), true)['data'];
         if(empty($response)) return new Collection();
         if(!empty($response['errors'])) return new Collection();
-        return (new Collection(
-            $response['result']
-        ))->map(function (array $row) use ($transformer) {
-            return $this->transformEntity($row, $transformer);
-        });
+        if(!empty($response['result'])){
+            return (new Collection(
+                $response['result']
+            ))->map(function (array $row) use ($transformer) {
+                return $this->transformEntity($row, $transformer);
+            });
+        }
+        return new Collection();
     }
 }
